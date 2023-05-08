@@ -7,9 +7,6 @@ AdaIN performs style transfer in the feature space by transferring feature stati
 
 A decoder network is then trained to generate the final stylized image by inverting the AdaIN output ***t*** back to the image space generating the stylized image. The decoder mostly mirrors the encoder, with all pooling layers replaced by nearest up-sampling to reduce checkerboard effects. Reflection padding has been used to avoid border artifacts on the generated image.
  
- This model even has the ability to control the level of stylization at runtime without any additional computation or training cost.
- ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/degreesof-alpha.png)
- 
 This implementation is in PyTorch framework. I have provided a user-friendly interface for users to upload their content and style images, adjust the parameters, and generate stylized images in real-time.
 
 The model has been trained for 200,000 iterations on a AWS Notebook Instance ml.p3.2xlarge(Nvidia Tesla V100 16GB) which took 16 hours approximately.
@@ -36,7 +33,7 @@ https://github.com/Moddy2024/Image-Colorization.git
 * [test-style](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-style) - This directory contains a collection of art images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
 * [test-content](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-content) - This directory contains a collection of content images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
 # Dataset
-The [ImageNet](https://www.image-net.org/about.php) Dataset has been downloaded and extracted from the Kaggle Competition [ImageNet Object Localization Challenge](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data). It can also be retrieved from it's official website [here](https://www.image-net.org/download.php) in order to download from this website you will have to sign up there. In order to download the dataset from Kaggle you need to extract [API Token](https://www.kaggle.com/discussions/general/371462#2060661) from the Kaggle account only then you will be able to download dataset from Kaggle to anywhere. The official instructions on how to use the [KAGGLE API](https://github.com/Kaggle/kaggle-api).
+The [ImageNet](https://www.image-net.org/about.php) Dataset has been downloaded and extracted from the Kaggle Competition [ImageNet Object Localization Challenge](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data). It can also be retrieved from it's official website [here](https://www.image-net.org/download.php) in order to download from this website you will have to sign up there. Yoi can either used the dataset in Kaggle itself but if you want to download to use it somewhere else then first you need to extract your [API Token](https://www.kaggle.com/discussions/general/371462#2060661) from the Kaggle account only then you will be able to download dataset from Kaggle to anywhere. The official instructions on how to use the [KAGGLE API](https://github.com/Kaggle/kaggle-api).
 ```bash
 !ls -lha /home/ec2-user/SageMaker/kaggle.json
 !pip install -q kaggle
