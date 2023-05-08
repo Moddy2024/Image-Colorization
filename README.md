@@ -36,21 +36,7 @@ https://github.com/Moddy2024/Image-Colorization.git
 * [test-style](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-style) - This directory contains a collection of art images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
 * [test-content](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-content) - This directory contains a collection of content images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
 # Dataset
-The Content Data which is the [COCO Dataset](https://cocodataset.org/#download) has been downloaded and extracted using wget command in the terminal. The script downloads the train2014.zip file from the official COCO website and saves it as coco.zip in the specified directory. It then extracts the contents of the zip file using the ZipFile function from the zipfile module and saves it in the content-data directory. Once the extraction is complete, the zip file is removed using the os.remove function.
-```bash
-!wget --no-check-certificate \
-    "http://images.cocodataset.org/zips/train2014.zip" \
-    -O "/home/ec2-user/SageMaker/coco.zip"
-
-local_zip = '/home/ec2-user/SageMaker/coco.zip'
-zip_ref   = zipfile.ZipFile(local_zip, 'r')
-!mkdir /home/ec2-user/SageMaker/content-data
-zip_ref.extractall('/home/ec2-user/SageMaker/content-data')
-zip_ref.close()
-os.remove(local_zip)
-print('The number of images present in COCO dataset are:',len(os.listdir('/home/ec2-user/SageMaker/content-data/train2014')))
-```
-The Style Dataset has been downloaded and extracted from the Kaggle Competition [Painter by numbers](https://www.kaggle.com/competitions/painter-by-numbers/data). To ensure that the number of images in the style dataset matches the number of images in the content dataset, you can include the test dataset as well. By downloading the test dataset, you can randomly extract 3350 images from it to supplement the style dataset. This will enable you to have a balanced dataset for training your model and will also make the model robust. In order to download the dataset from Kaggle you need to extract [API Token](https://www.kaggle.com/discussions/general/371462#2060661) from the Kaggle account only then you will be able to download dataset from Kaggle to anywhere. The official instructions on how to use the [KAGGLE API](https://github.com/Kaggle/kaggle-api).
+The [ImageNet](https://www.image-net.org/about.php) Dataset has been downloaded and extracted from the Kaggle Competition [ImageNet Object Localization Challenge](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data). It can also be retrieved from it's official website [here](https://www.image-net.org/download.php) in order to download from this website you will have to sign up there. In order to download the dataset from Kaggle you need to extract [API Token](https://www.kaggle.com/discussions/general/371462#2060661) from the Kaggle account only then you will be able to download dataset from Kaggle to anywhere. The official instructions on how to use the [KAGGLE API](https://github.com/Kaggle/kaggle-api).
 ```bash
 !ls -lha /home/ec2-user/SageMaker/kaggle.json
 !pip install -q kaggle
@@ -58,14 +44,14 @@ The Style Dataset has been downloaded and extracted from the Kaggle Competition 
 !cp kaggle.json ~/.kaggle/
 !chmod 600 /home/ec2-user/SageMaker/kaggle.json
 
-!kaggle competitions download -f train.zip -p '/home/ec2-user/SageMaker' -o painter-by-numbers
+!kaggle competitions download -f train.zip -p '/home/ec2-user/SageMaker' -o imageNet-object-localization-challenge
 local_zip = '/home/ec2-user/SageMaker/train.zip'
 zip_ref = zipfile.ZipFile(local_zip, 'r')
-!mkdir /home/ec2-user/SageMaker/style-data
-zip_ref.extractall('/home/ec2-user/SageMaker/style-data')
+!mkdir /home/ec2-user/SageMaker/imagenet-data
+zip_ref.extractall('/home/ec2-user/SageMaker/imagenet-data')
 zip_ref.close()
 os.remove(local_zip)
-print('The number of images present in WikiArt dataset are:',len(os.listdir('/home/ec2-user/SageMaker/train')))
+print('The number of images present in Imagenet dataset are:',len(os.listdir('/home/ec2-user/SageMaker/train')))
 ```
 
 # Results
