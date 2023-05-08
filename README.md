@@ -27,7 +27,7 @@ The model has been trained for 200,000 iterations on a AWS Notebook Instance ml.
 
 Once you have these dependencies installed, you can clone the AdaIN Style Transfer repository from GitHub:
 ```bash
-https://github.com/Moddy2024/AdaIN-Style-Transfer.git
+https://github.com/Moddy2024/Image-Colorization.git
 ```
 # Key Directories and Files
 * [ADAIN.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/ADAIN.ipynb) - In this Jupyter Notebook, you can find a comprehensive walkthrough of the data pipeline for AdaIN style transfer, which includes steps for downloading the dataset, preprocessing the data, details on the various data transformations and data loader creation steps,  along with visualizations of the data after transformations and moving the preprocessed data to the GPU for model training. There's also the implementation of the AdaIN style transfer, the architecture of the model used for training and the whole training process.
@@ -74,10 +74,10 @@ print('The number of images present in WikiArt dataset are:',len(os.listdir('/ho
   ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/goldengate-starrynight.jpg)
  # Citation
 ```bash
-@inproceedings{huang2017adain,
-  title={Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization},
-  author={Huang, Xun and Belongie, Serge},
-  booktitle={ICCV},
+@inproceedings{isola2017pix2pix,
+  title={Image-to-Image Translation with Conditional Adversarial Networks},
+  author={Isola, Phillip and Zhu, Jun-Yan and Zhou, Tinghui and Efros, Alexei A.},
+  booktitle={CVPR},
   year={2017}
 }
 ```
