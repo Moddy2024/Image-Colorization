@@ -65,3 +65,17 @@ print('The number of images present in Imagenet dataset are:',len(os.listdir('/h
   year={2017}
 }
 ```
+
+
+The Discriminator class provided in this repository implements a patch discriminator, which is a key component in generative adversarial networks (GANs) for image analysis tasks. The patch discriminator architecture is designed to classify the authenticity of local image patches rather than the entire image. This approach allows for fine-grained discrimination and helps to capture detailed features within an image. The Discriminator class utilizes a series of convolutional layers with decreasing spatial dimensions to extract hierarchical representations from the input patches. The architecture is constructed using the get_layers method, which efficiently creates repeatable blocks of layers, including convolution, normalization (batch normalization), and activation (LeakyReLU) operations. By stacking these blocks, the discriminator progressively learns to differentiate between real and fake patches. The last layer of the discriminator produces a single output channel, representing the probability of the input patch being real or fake. The provided code offers a flexible and effective implementation of a patch discriminator, which can be seamlessly integrated into various image generation tasks and GAN-based applications.
+
+Discriminator
+The Discriminator class presented in this repository implements a patch discriminator architecture for image analysis tasks in a generative adversarial network (GAN) framework. This discriminator is designed to distinguish between real and fake image patches, focusing on local regions rather than the entire input image.
+
+The architecture of the patch discriminator is based on a series of convolutional layers with decreasing spatial dimensions. The get_layers method is utilized to construct repetitive blocks of layers, which consist of a convolutional operation followed by optional normalization (batch normalization) and activation (LeakyReLU) layers. This modular approach allows for easy configuration and extension of the discriminator architecture.
+
+The Discriminator class inherits from nn.Module in PyTorch and utilizes the nn.Sequential container to stack the layers and define the forward pass. The number of filters in the convolutional layers progressively increases, effectively capturing features at different scales in the image. The final layer of the discriminator has a single output channel, providing the probability of the input patch being real or fake.
+
+To use the discriminator, simply instantiate an instance of the Discriminator class and pass the input image tensor through the forward method. The output will be a prediction indicating the authenticity of the input patch.
+
+This code provides a useful implementation of a patch discriminator that can be employed in various image generation tasks, such as image-to-image translation or other GAN-based applications.
