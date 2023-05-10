@@ -1,15 +1,15 @@
 # Image-Colorization
 
 
-My implementation of ["Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization"](https://openaccess.thecvf.com/content_ICCV_2017/papers/Huang_Arbitrary_Style_Transfer_ICCV_2017_paper.pdf) is based on the paper by Huang et al. The encoder is a pre-trained VGG 19 network without batch normalization (BN) layers, which is used to extract the content and style features from the content image and the style image, respectively. The encoded features of the content and style image are collected and then both of these features are sent to the AdaIN layer for style transfer in the feature space.
+My implementation of ["Image-to-Image Translation with Conditional Adversarial Networks"](https://arxiv.org/pdf/1611.07004v3.pdf) is based on the paper by Isola et al. The encoder is a pre-trained VGG 19 network without batch normalization (BN) layers, which is used to extract the content and style features from the content image and the style image, respectively. The encoded features of the content and style image are collected and then both of these features are sent to the AdaIN layer for style transfer in the feature space.
 ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/architecture.png)
 AdaIN performs style transfer in the feature space by transferring feature statistics, specifically the channel-wise mean and variance. AdaIN layer takes the features produced by the encoder of both the content image and style image and simply aligns the mean and variance of the content feature to match those of the style feature, producing the target feature ***t***.
 
 A decoder network is then trained to generate the final stylized image by inverting the AdaIN output ***t*** back to the image space generating the stylized image. The decoder mostly mirrors the encoder, with all pooling layers replaced by nearest up-sampling to reduce checkerboard effects. Reflection padding has been used to avoid border artifacts on the generated image.
  
-This implementation is in PyTorch framework. I have provided a user-friendly interface for users to upload their content and style images, adjust the parameters, and generate stylized images in real-time.
+This implementation is in PyTorch framework. I have provided a user-friendly interface for users to upload their images, and generate colorized images.
 
-The model has been trained for 200,000 iterations on a AWS Notebook Instance ml.p3.2xlarge(Nvidia Tesla V100 16GB) which took 16 hours approximately.
+The model has been trained for 2,000,000 iterations on a Kaggle Notebook with GPU (Nvidia Tesla P100 16GB) which took 80 hours approximately.
 
 # Dependencies
 * [PyTorch](https://pytorch.org/)
@@ -17,10 +17,11 @@ The model has been trained for 200,000 iterations on a AWS Notebook Instance ml.
 * [PIL](https://pypi.org/project/Pillow/)
 * [Numpy](https://numpy.org/)
 * [OS](https://docs.python.org/3/library/os.html)
-* [zipfile](https://docs.python.org/3/library/zipfile.html)
-* [Shutil](https://docs.python.org/3/library/shutil.html#:~:text=Source%20code%3A%20Lib%2Fshutil.,see%20also%20the%20os%20module.)
+* [Scikit-Image](https://scikit-image.org/)
+* [tqdm](https://tqdm.github.io/)
 * [Torchvision](https://pytorch.org/vision/stable/index.html)
 * [torchinfo](https://github.com/TylerYep/torchinfo)
+* [Pathlib](https://docs.python.org/3/library/pathlib.html)
 
 Once you have these dependencies installed, you can clone the AdaIN Style Transfer repository from GitHub:
 ```bash
