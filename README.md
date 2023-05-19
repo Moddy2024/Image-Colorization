@@ -1,8 +1,7 @@
 # Image-Colorization
 
 
-My implementation of ["Image-to-Image Translation with Conditional Adversarial Networks"](https://arxiv.org/pdf/1611.07004v3.pdf) is based on the paper by Isola et al. The encoder is a pre-trained VGG 19 network without batch normalization (BN) layers, which is used to extract the content and style features from the content image and the style image, respectively. The encoded features of the content and style image are collected and then both of these features are sent to the AdaIN layer for style transfer in the feature space.
-
+My implementation of ["Image-to-Image Translation with Conditional Adversarial Networks"](https://arxiv.org/pdf/1611.07004v3.pdf) is based on the paper by Isola et al. 
 The generator architecture comprises multiple components organized in a sequential manner. The initial stage involves down-sampling the input image using a convolutional layer with appropriate parameters. This step is followed by a series of residual blocks, each consisting of convolutional layers with batch normalization and leaky ReLU activation functions. The residual blocks enable the network to learn complex features while retaining useful information from previous layers. Additionally, skip connections are incorporated to facilitate the flow of information from earlier layers to later layers, enhancing gradient flow and enabling the model to capture fine-grained details.
 The final layers of the generator architecture involve an upsampling process and a final convolutional layer with a transposed convolution operation. The output of the generator is a synthesized image that exhibits the desired characteristics based on the input noise or latent representation.
 ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/architecture.png)
