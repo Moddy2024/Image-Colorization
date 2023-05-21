@@ -1,10 +1,11 @@
 # Image-Colorization
 
 
-My implementation of ["Image-to-Image Translation with Conditional Adversarial Networks"](https://arxiv.org/pdf/1611.07004v3.pdf) is based on the paper by Isola et al. 
-The generator architecture comprises multiple components organized in a sequential manner. The initial stage involves down-sampling the input image using a convolutional layer with appropriate parameters. This step is followed by a series of residual blocks, each consisting of convolutional layers with batch normalization and leaky ReLU activation functions. The residual blocks enable the network to learn complex features while retaining useful information from previous layers. Additionally, skip connections are incorporated to facilitate the flow of information from earlier layers to later layers, enhancing gradient flow and enabling the model to capture fine-grained details.
-The final layers of the generator architecture involve an upsampling process and a final convolutional layer with a transposed convolution operation. The output of the generator is a synthesized image that exhibits the desired characteristics based on the input noise or latent representation.
-![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/architecture.png)
+My implementation of ["Image-to-Image Translation with Conditional Adversarial Networks"](https://arxiv.org/pdf/1611.07004v3.pdf) is based on the paper by Isola et al. The generator architecture used in the paper is an UNET architecture, the results produced from it for Image Colorization were not satisfactory. So, I created a different Generator architecture where the encoder was influenced by Resnet but the Decoder is the same as paper as this produces better visually appealing images. I even trained the Generator on a NOGan training first which was inspired from DeOldify.
+
+The modified generator architecture comprises multiple components organized in a sequential manner. The Encoder stage involves down-sampling the input image using a convolutional layer with appropriate parameters. This step is followed by a series of residual blocks, each consisting of convolutional layers with batch normalization and leaky ReLU activation functions. Subsequently, a series of residual blocks further refine the extracted features, ensuring the preservation of important image details while facilitating the learning of intricate patterns. Additionally, skip connections are incorporated to facilitate the flow of information from earlier layers to later layers, enhancing gradient flow and enabling the model to capture fine-grained details.
+The Decoder layers of the generator architecture involve an upsampling process and a final convolutional layer with a transposed convolution operation. Critically, at each upsampling step, the upsampled feature maps are concatenated with the corresponding feature maps from the skip connections. This concatenation operation enables the fusion of high-level semantic information from the Encoder with detailed information captured at earlier stages. The concatenation operation was followed as it was in the paper. The output of the generator is the synthesized ab channel of LAB image that is further converted to RGB for the colorized Image.
+![]()
 
 The Discriminator implements a patch discriminator which is exactly the same as discussed in the paper, which is a key component in generative adversarial networks (GANs) for image analysis tasks. The patch discriminator architecture is specifically designed to discern the authenticity of local image patches rather than the entire image. This approach facilitates fine-grained discrimination and enables the capture of intricate features within an image. The architecture of the patch discriminator is composed of a sequence of convolutional layers with progressively reduced spatial dimensions. Following each convolutional layer, batch normalization and LeakyReLU activation functions are applied. Batch normalization aids in stabilizing the training process by normalizing the layer inputs, while LeakyReLU activation introduces non-linearity and enhances the model's ability to capture complex patterns. The final layer of the discriminator produces a single output channel, representing the probability of the input patch being real or fake. This output probability is then utilized in tandem with the generator to train the discriminator within the GAN framework.
  
@@ -54,9 +55,9 @@ print('The number of images present in Imagenet dataset are:',len(os.listdir('/h
 ```
 
 # Results
-  ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/victoria-memorial-womanwithhat-matisse.png)
-  ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/lenna-picasso-seatednude.png)
-  ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/goldengate-starrynight.jpg)
+  ![]()
+  ![]()
+  ![]()
  # Citation
 ```bash
 @inproceedings{isola2017pix2pix,
