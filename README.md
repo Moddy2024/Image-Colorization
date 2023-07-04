@@ -8,7 +8,7 @@ The Decoder layers of the generator architecture involve an upsampling process a
 ![]()
 
 The Discriminator implements a patch discriminator which is exactly the same as discussed in the paper, which is a key component in generative adversarial networks (GANs) for image analysis tasks. The patch discriminator architecture is specifically designed to discern the authenticity of local image patches rather than the entire image. This approach facilitates fine-grained discrimination and enables the capture of intricate features within an image. The architecture of the patch discriminator is composed of a sequence of convolutional layers with progressively reduced spatial dimensions. Following each convolutional layer, batch normalization and LeakyReLU activation functions are applied. Batch normalization aids in stabilizing the training process by normalizing the layer inputs, while LeakyReLU activation introduces non-linearity and enhances the model's ability to capture complex patterns. The final layer of the discriminator produces a single output channel, representing the probability of the input patch being real or fake. This output probability is then utilized in tandem with the generator to train the discriminator within the GAN framework.
-![]()
+![](https://github.com/Moddy2024/Image-Colorization/blob/main/discrminator-diagram/discriminator-image.png)
 
 The image of the architecture of the discrminator has been created using [PlotNeuralNet](https://github.com/HarisIqbal88/PlotNeuralNet).
  
