@@ -30,10 +30,10 @@ Once you have these dependencies installed, you can clone the AdaIN Style Transf
 https://github.com/Moddy2024/Image-Colorization.git
 ```
 # Key Directories and Files
-* [ADAIN.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/ADAIN.ipynb) - In this Jupyter Notebook, you can find a comprehensive walkthrough of the data pipeline for AdaIN style transfer, which includes steps for downloading the dataset, preprocessing the data, details on the various data transformations and data loader creation steps,  along with visualizations of the data after transformations and moving the preprocessed data to the GPU for model training. There's also the implementation of the AdaIN style transfer, the architecture of the model used for training and the whole training process.
+* [training-gan.ipynb](https://github.com/Moddy2024/Image-Colorization/blob/main/training-gan.ipynb) - In this Jupyter Notebook, you can find a comprehensive walkthrough of the data pipeline for AdaIN style transfer, which includes steps for downloading the dataset, preprocessing the data, details on the various data transformations and data loader creation steps,  along with visualizations of the data after transformations and moving the preprocessed data to the GPU for model training. There's also the implementation of the AdaIN style transfer, the architecture of the model used for training and the whole training process.
 * [prediction.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/prediction.ipynb) - This notebook demonstrates how to perform style transfer on images using the pre-trained model. As this is a Adaptive Style Transfer so any style image and content image can be used.
 * [results](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/results) - This directory contains the results from some of the test images that have been collected after the last epoch of training.
-* [test-style](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-style) - This directory contains a collection of art images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
+* [tes]() - This directory contains a collection of art images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
 * [test-content](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-content) - This directory contains a collection of content images sourced randomly from the internet, which are intended to be used for testing and evaluation purposes.
 # Dataset
 The [ImageNet](https://www.image-net.org/about.php) Dataset has been downloaded and extracted from the Kaggle Competition [ImageNet Object Localization Challenge](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data). It can also be retrieved from it's official website [here](https://www.image-net.org/download.php) in order to download from this website you will have to sign up there. Yoi can either used the dataset in Kaggle itself but if you want to download to use it somewhere else then first you need to extract your [API Token](https://www.kaggle.com/discussions/general/371462#2060661) from the Kaggle account only then you will be able to download dataset from Kaggle to anywhere. The official instructions on how to use the [KAGGLE API](https://github.com/Kaggle/kaggle-api).
@@ -55,8 +55,12 @@ print('The number of images present in Imagenet dataset are:',len(os.listdir('/h
 ```
 
 # Results
-  ![]()
-  ![]()
+  ![](https://github.com/Moddy2024/Image-Colorization/blob/main/results/727.png)
+  ![](https://github.com/Moddy2024/Image-Colorization/blob/main/results/7752.png)
+  ![](https://github.com/Moddy2024/Image-Colorization/blob/main/results/824.png)
+  ![](https://github.com/Moddy2024/Image-Colorization/blob/main/results/856.png)
+  ![](https://github.com/Moddy2024/Image-Colorization/blob/main/results/858.png)
+  ![](https://github.com/Moddy2024/Image-Colorization/blob/main/results/859.png)
   ![]()
  # Citation
 ```bash
