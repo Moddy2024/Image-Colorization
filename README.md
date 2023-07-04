@@ -65,10 +65,10 @@ print('The number of images present in Imagenet dataset are:',len(os.listdir('/h
   ![]()
  # Citation
 ```bash
-@inproceedings{isola2017pix2pix,
+@inproceedings{isola2018pix2pix,
   title={Image-to-Image Translation with Conditional Adversarial Networks},
   author={Isola, Phillip and Zhu, Jun-Yan and Zhou, Tinghui and Efros, Alexei A.},
   booktitle={CVPR},
-  year={2017}
+  year={2018}
 }
 ```
